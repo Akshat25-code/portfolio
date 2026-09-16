@@ -240,8 +240,10 @@
       const dpr = window.devicePixelRatio || 1;
       width = rect.width || 1000;
       height = rect.height || 650;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
 
@@ -450,7 +452,7 @@
       isHit(mx, my) {
         const dx = mx - this.projX;
         const dy = my - this.projY;
-        const hitR = Math.max(18, (this.data.radius + 8) * this.scale);
+        const hitR = Math.max(26, (this.data.radius + 12) * this.scale);
         return (dx * dx + dy * dy) < (hitR * hitR);
       }
     }
@@ -944,7 +946,7 @@
       isHit(mx, my) {
         const dx = mx - this.projX;
         const dy = my - this.projY;
-        const hitR = Math.max(16, (this.badgeRadius + 8) * this.scale);
+        const hitR = Math.max(22, (this.badgeRadius + 12) * this.scale);
         return (dx * dx + dy * dy) < (hitR * hitR);
       }
     }
@@ -1234,7 +1236,9 @@
       const py = hoveredObject.projY;
 
       ctx.save();
-      ctx.translate(px, py - 30);
+      // Position tooltip safely above or below
+      const offsetY = py > 70 ? -36 : 36;
+      ctx.translate(px, py + offsetY);
 
       let title = '';
       let subtitle = '';
@@ -1247,45 +1251,69 @@
         subtitle = `Orbit ${hoveredObject.orbitData.orbit} • ${hoveredObject.data.category}`;
       }
 
-      ctx.font = '700 11px "Plus Jakarta Sans", sans-serif';
+      ctx.font = '700 12.5px "Plus Jakarta Sans", sans-serif';
       const titleW = ctx.measureText(title).width;
-      ctx.font = '500 8.5px "JetBrains Mono", monospace';
+      ctx.font = '600 9.5px "JetBrains Mono", monospace';
       const subW = ctx.measureText(subtitle).width;
-      const boxW = Math.max(titleW, subW) + 24;
-      const boxH = 34;
+      const boxW = Math.max(titleW, subW) + 28;
+      const boxH = 40;
 
-      // Tooltip Glassmorphic Card
-      ctx.fillStyle = 'rgba(7, 12, 18, 0.92)';
+      // Tooltip Glassmorphic Box with Glowing Neon Cyan Border
+      ctx.fillStyle = 'rgba(5, 9, 14, 0.96)';
       ctx.strokeStyle = '#00E5FF';
-      ctx.lineWidth = 1.2;
-      ctx.shadowColor = 'rgba(0, 229, 255, 0.45)';
-      ctx.shadowBlur = 14;
+      ctx.lineWidth = 1.6;
+      ctx.shadowColor = 'rgba(0, 229, 255, 0.65)';
+      ctx.shadowBlur = 18;
 
       ctx.beginPath();
-      ctx.roundRect(-boxW / 2, -boxH / 2, boxW, boxH, 6);
+      ctx.roundRect(-boxW / 2, -boxH / 2, boxW, boxH, 8);
       ctx.fill();
       ctx.stroke();
 
-      // Tooltip Indicator Pip
+      // Tooltip Pointer Arrow
       ctx.beginPath();
-      ctx.moveTo(-4, boxH / 2);
-      ctx.lineTo(0, boxH / 2 + 5);
-      ctx.lineTo(4, boxH / 2);
+      if (offsetY < 0) {
+        ctx.moveTo(-5, boxH / 2);
+        ctx.lineTo(0, boxH / 2 + 6);
+        ctx.lineTo(5, boxH / 2);
+      } else {
+        ctx.moveTo(-5, -boxH / 2);
+        ctx.lineTo(0, -boxH / 2 - 6);
+        ctx.lineTo(5, -boxH / 2);
+      }
       ctx.fillStyle = '#00E5FF';
       ctx.fill();
 
       // Text Render
       ctx.shadowBlur = 0;
-      ctx.font = '700 11px "Plus Jakarta Sans", sans-serif';
+      ctx.font = '700 12.5px "Plus Jakarta Sans", sans-serif';
       ctx.fillStyle = '#FFFFFF';
       ctx.textAlign = 'center';
-      ctx.fillText(title, 0, -3);
+      ctx.fillText(title, 0, -4);
 
-      ctx.font = '600 8.5px "JetBrains Mono", monospace';
-      ctx.fillStyle = 'rgba(0, 229, 255, 0.9)';
-      ctx.fillText(subtitle, 0, 10);
+      ctx.font = '600 9.5px "JetBrains Mono", monospace';
+      ctx.fillStyle = '#00E5FF';
+      ctx.fillText(subtitle, 0, 11);
 
       ctx.restore();
+    }
+
+    // Dynamic Hover Hit-Test Function
+    function checkHover() {
+      if (isDragging) return;
+      if (mousePos.x >= 0 && mousePos.x <= width && mousePos.y >= 0 && mousePos.y <= height) {
+        let hit = null;
+        for (let i = celestialBodies.length - 1; i >= 0; i--) {
+          if (celestialBodies[i].isHit(mousePos.x, mousePos.y)) {
+            hit = celestialBodies[i];
+            break;
+          }
+        }
+        hoveredObject = hit;
+        container.style.cursor = hit ? 'pointer' : 'grab';
+      } else {
+        hoveredObject = null;
+      }
     }
 
     // Initialize all celestial bodies (planet + separate skill logo badges)
@@ -1318,6 +1346,9 @@
     // Main Render Loop
     function render() {
       ctx.clearRect(0, 0, width, height);
+
+      // Check hover every frame so moving celestial bodies under cursor trigger instantly
+      checkHover();
 
       // Inertial Rotation when not dragging
       if (!isDragging) {
@@ -1409,8 +1440,10 @@
 
     window.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect();
-      const mx = e.clientX - rect.left;
-      const my = e.clientY - rect.top;
+      const scaleX = width / (rect.width || 1);
+      const scaleY = height / (rect.height || 1);
+      const mx = (e.clientX - rect.left) * scaleX;
+      const my = (e.clientY - rect.top) * scaleY;
       mousePos.x = mx;
       mousePos.y = my;
 
@@ -1423,19 +1456,15 @@
         rotX = Math.max(0.12, Math.min(1.4, rotX + velX)); // Allow full up/down tilt
         startX = e.clientX;
         startY = e.clientY;
-      } else if (mx >= 0 && mx <= width && my >= 0 && my <= height) {
-        let hit = null;
-        for (let i = celestialBodies.length - 1; i >= 0; i--) {
-          if (celestialBodies[i].isHit(mx, my)) {
-            hit = celestialBodies[i];
-            break;
-          }
-        }
-        hoveredObject = hit;
-        container.style.cursor = hit ? 'pointer' : (isDragging ? 'grabbing' : 'grab');
       } else {
-        hoveredObject = null;
+        checkHover();
       }
+    });
+
+    container.addEventListener('mouseleave', () => {
+      mousePos.x = -999;
+      mousePos.y = -999;
+      hoveredObject = null;
     });
 
     window.addEventListener('mouseup', () => {
