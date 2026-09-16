@@ -21,9 +21,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="styles/main.css" />
-  <link rel="stylesheet" href="styles/components.css" />
-  <link rel="stylesheet" href="styles/animations.css" />
+  <link rel="stylesheet" href="styles/main.css?v=1.1" />
+  <link rel="stylesheet" href="styles/components.css?v=1.1" />
+  <link rel="stylesheet" href="styles/animations.css?v=1.1" />
 
   <!-- Early Theme Init Script -->
   <script src="js/theme.js"></script>
@@ -682,15 +682,28 @@
           </div>
         </div>
 
-        <!-- Footer -->
-        <footer class="site-footer">
-          <div class="footer-content">
-            <div>&copy; 2026 Akshat Gupta. Built with Vanilla Web Standards &bull; Obsidian &times; Electric Cyan</div>
-            <a href="#home" class="back-to-top-btn">
-              <span>Back to Top</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="m18 15-6-6-6 6"></path>
-              </svg>
+        <!-- Minimal Cosmic Horizon Footer -->
+        <footer class="site-footer cosmic-horizon">
+          <div class="horizon-glow"></div>
+          <div class="footer-content horizon-content">
+            <!-- Left: Identity & Location -->
+            <div class="horizon-identity">
+              <span class="horizon-name">AKSHAT GUPTA</span>
+              <span class="horizon-sep">&bull;</span>
+              <span class="horizon-geo">Mumbai, India (19.0760&deg; N, 72.8777&deg; E)</span>
+            </div>
+
+            <!-- Center: Live System Telemetry -->
+            <div class="horizon-telemetry">
+              <span class="telemetry-pulse"></span>
+              <span>ORBITAL SYSTEMS STABLE</span>
+              <span class="horizon-year">&copy; 2026</span>
+            </div>
+
+            <!-- Right: Return to Orbit Button -->
+            <a href="#home" class="horizon-top-btn" aria-label="Return to Orbit (Top of Page)">
+              <span>Return to Orbit</span>
+              <span class="horizon-arrow">&uarr;</span>
             </a>
           </div>
         </footer>

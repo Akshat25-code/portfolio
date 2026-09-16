@@ -1567,32 +1567,144 @@ body.no-scroll {
 }
 
 /* --------------------------------------------------------------------------
-   9. Footer & Back to Top
+   9. Minimal Cosmic Horizon Footer
    -------------------------------------------------------------------------- */
-.site-footer {
-  border-top: 1px solid var(--border-normal);
-  padding: 3.5rem 0;
-  margin-top: 6rem;
+.site-footer.cosmic-horizon {
+  border-top: none;
+  padding: 4.5rem 0 3.5rem;
+  margin-top: 5rem;
+  position: relative;
+  overflow: visible;
 }
 
-.footer-content {
+/* Atmospheric Glowing Horizon Line */
+.horizon-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1000px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.45) 25%, rgba(0, 229, 255, 0.95) 50%, rgba(0, 229, 255, 0.45) 75%, transparent);
+  box-shadow: 0 0 25px 2px rgba(0, 229, 255, 0.45), 0 0 60px 8px rgba(0, 229, 255, 0.15);
+}
+
+.horizon-glow::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: 20%;
+  right: 20%;
+  height: 80px;
+  background: radial-gradient(ellipse 60% 40px at 50% 50%, rgba(0, 229, 255, 0.08), transparent);
+  pointer-events: none;
+}
+
+.horizon-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  position: relative;
+  z-index: 2;
 }
 
-.back-to-top-btn {
+.horizon-identity {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--text-secondary);
+}
+
+.horizon-name {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.horizon-sep {
+  color: rgba(0, 229, 255, 0.5);
+}
+
+.horizon-geo {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.horizon-telemetry {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.9rem;
+  background: rgba(13, 20, 28, 0.55);
+  border: 1px solid rgba(0, 229, 255, 0.15);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+}
+
+.telemetry-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan-signature);
+  box-shadow: 0 0 8px var(--cyan-signature);
+  animation: pulse-glow 2s infinite ease-in-out;
+}
+
+.horizon-year {
+  color: var(--cyan-signature);
+  font-weight: 600;
+}
+
+.horizon-top-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.5rem;
   color: var(--text-secondary);
-  transition: color var(--transition-fast);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  background: rgba(13, 20, 28, 0.6);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.back-to-top-btn:hover {
+.horizon-top-btn:hover {
   color: var(--cyan-signature);
+  border-color: rgba(0, 229, 255, 0.4);
+  background: rgba(0, 229, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.2);
+}
+
+.horizon-arrow {
+  display: inline-block;
+  transition: transform 0.2s ease;
+  color: var(--cyan-signature);
+}
+
+.horizon-top-btn:hover .horizon-arrow {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .horizon-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+  .horizon-identity {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
 }
 
 /* --------------------------------------------------------------------------
