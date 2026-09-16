@@ -1,0 +1,193 @@
+/* ==========================================================================
+   ANIMATIONS.CSS - Keyframes, Scroll Triggers, Shimmers, and Micro-Interactions
+   Engineered with Physics-Based Easing for Top-Notch Smoothness
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Keyframe Definitions
+   -------------------------------------------------------------------------- */
+
+/* Continuous Ticker Marquee */
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Status Dot Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 8px var(--status-online);
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.75;
+    box-shadow: 0 0 16px var(--status-online);
+  }
+}
+
+/* Blinking Terminal Cursor */
+@keyframes blinkCursor {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Bounce Scroll Arrow */
+@keyframes bounceDown {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(8px);
+  }
+  60% {
+    transform: translateY(4px);
+  }
+}
+
+/* Fade In Message for Chat */
+@keyframes fadeInMsg {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Nav Drawer Slide Down */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shimmer Light Sweep */
+@keyframes shimmerSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Floating Orb Ambient Drift */
+@keyframes floatOrb {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -40px) scale(1.08);
+  }
+  66% {
+    transform: translate(-25px, 20px) scale(0.95);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Scroll-Triggered Reveal Classes (.reveal-init, .in-view)
+   -------------------------------------------------------------------------- */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-init.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* --------------------------------------------------------------------------
+   3. Micro-Interaction Utility Classes
+   -------------------------------------------------------------------------- */
+/* Shimmer Button Effect */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transition: left 0.6s ease;
+}
+
+.btn-shimmer:hover::before {
+  left: 100%;
+}
+
+/* Glowing Border Card */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: var(--accent-gradient);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.glow-border:hover::after {
+  opacity: 0.45;
+}
+
+/* --------------------------------------------------------------------------
+   4. Accessibility: Prefers Reduced Motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .ticker-track {
+    animation: none !important;
+  }
+}

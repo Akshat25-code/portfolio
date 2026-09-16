@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshat Gupta | AI Engineer &amp; Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of Akshat Gupta - AI Engineer and Full-Stack Developer specializing in agentic RAG pipelines, production backends, and modern software systems." />
+  <meta name="keywords" content="Akshat Gupta, AI Engineer, Full Stack Developer, RAG, LangGraph, FastAPI, Spring Boot, React, Python, Java, Portfolio" />
+  <meta name="author" content="Akshat Gupta" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:title" content="Akshat Gupta | AI Engineer &amp; Full-Stack Developer" />
+  <meta property="og:description" content="Building intelligent software at the intersection of AI, software engineering, and full-stack systems." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#05080A" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+  <!-- Google Fonts: Plus Jakarta Sans, JetBrains Mono & Caveat Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/components.css" />
+  <link rel="stylesheet" href="styles/animations.css" />
+
+  <!-- Early Theme Init Script -->
+  <script src="js/theme.js"></script>
+</head>
+<body class="no-scroll">
+  <!-- ========================================================================
+       SPLASH SCREEN PRELOADER SEQUENCE (5.1s Auto-Sync + Animated MP4)
+       ======================================================================== -->
+  <div id="splash-preloader" role="dialog" aria-label="Loading splash screen">
+    <div class="splash-content">
+      <h2 class="splash-headline">There's a new <span class="splash-script">Dev</span> in town.</h2>
+      <p class="splash-sub">Meet Akshat!</p>
+
+      <div class="splash-video-wrapper">
+        <video id="splash-video" autoplay muted playsinline poster="assets/preloader_poster.jpg" class="splash-video">
+          <source src="assets/preloader.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="splash-footer">&copy; Akshat Gupta , 2026.</div>
+    </div>
+  </div>
+
+  <!-- Ambient Atmospheric Glows -->
+  <div class="bg-ambient" aria-hidden="true"></div>
+
+  <!-- Interactive 3D Particle Constellation Canvas -->
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+  <!-- ========================================================================
+       FLOATING GLASS PILL NAVIGATION
+       ======================================================================== -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" aria-label="Main Navigation">
+      <!-- Dark/Light Theme Toggle Button -->
+      <button class="theme-toggle-btn" aria-label="Toggle Dark and Light Mode" title="Toggle theme">
+        <!-- Moon Icon -->
+        <svg class="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+        <!-- Sun Icon -->
+        <svg class="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+      </button>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="#contact" class="btn-nav-cta">
+        <span>Get in Touch</span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open Mobile Navigation Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation Drawer">
+    <ul class="mobile-nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="#contact" class="btn-hero-explore" style="width:100%; justify-content:center; margin-top:0.5rem;">
+          Get in Touch
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Content Wrapper -->
+  <main class="content-wrapper">
+    <!-- ========================================================================
+         SECTION 1: Hero (Cleaned: No status pills, Looping Video, Typewriter)
+         ======================================================================== -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="hero-content-grid">
+          <!-- Left Column -->
+          <div class="hero-left reveal-init">
+            <h1 class="hero-greeting">
+              Hey <span class="wave-hand">👋</span> , I'm <span class="cyan-text">Akshat</span>
+            </h1>
+
+            <div class="hero-typewriter-row">
+              I'm an <span id="typewriter-text" class="cyan-text"></span><span class="typewriter-cursor">|</span>
+            </div>
+
+            <p class="hero-subheadline">
+              You've stumbled upon my little heaven on the internet; Welcome and feel at home! I build full-stack applications and AI-powered systems — from agentic RAG pipelines to production backends.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn-hero-explore">
+                <span>Explore My Work &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column (Animated Looping MP4 Video Card) -->
+          <div class="hero-right reveal-init delay-1">
+            <div class="hero-character-card">
+              <video id="hero-video" autoplay muted loop playsinline poster="assets/hero_poster.jpg" class="hero-video">
+                <source src="assets/hero.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 2: About (Mid-Size Bento Grid - 3D Flip Milestones, Typewriter)
+         ======================================================================== -->
+    <section id="about" class="bento-section">
+      <div class="container">
+        <div class="section-header reveal-init">
+          <span class="section-badge">About Me</span>
+          <h2 class="section-title">Architecting with <span class="cyan-text">Purpose &amp; Precision</span></h2>
+          <p class="section-subtitle">Synthesizing modern software engineering discipline with aesthetic excellence.</p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Card 1: Bento Typewriter Card (Span 4) -->
+          <article class="bento-card bento-card-embossed reveal-init">
+            <div class="bento-spotlight"></div>
+            <div class="bento-name-header">AKSHAT GUPTA</div>
+            <div class="bento-role-typewriter">
+              I'm an <span id="bento-typewriter-role" class="cyan-text">AI Engineer.</span><span class="typewriter-cursor">|</span>
+            </div>
+          </article>
+
+          <!-- Card 2: 3D Flip Milestone Cards (Span 8) -->
+          <article class="bento-card bento-card-expandable reveal-init delay-1">
+            <div class="bento-spotlight"></div>
+            <div class="expandable-header">
+              <h3 style="font-size: 1.15rem;">Milestones &amp; Track Record</h3>
+              <span style="font-family: var(--font-mono); font-size: 0.725rem; color: var(--cyan-signature);">Hover to flip &rarr;</span>
+            </div>
+            <div class="bento-subcards">
+              <!-- Flip Card 1: University -->
+              <div class="milestone-flip-card">
+                <div class="milestone-flip-inner">
+                  <div class="milestone-front">
+                    <h4>University</h4>
+                    <span class="flip-hint">Hover to inspect &darr;</span>
+                  </div>
+                  <div class="milestone-back">
+                    <p>Bachelor of Science in Information Technology. | Thakur College of Science &amp; Commerce, Mumbai University | 2023 &ndash; 2026</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Flip Card 2: Oracle Certified -->
+              <div class="milestone-flip-card">
+                <div class="milestone-flip-inner">
+                  <div class="milestone-front">
+                    <h4>Oracle Certified</h4>
+                    <span class="flip-hint">Hover to inspect &darr;</span>
+                  </div>
+                  <div class="milestone-back">
+                    <p>Oracle Cloud Infrastructure 2025 AI Foundations Associate | Oracle | Oct 2025</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Flip Card 3: Aspire Leaders Program -->
+              <div class="milestone-flip-card">
+                <div class="milestone-flip-inner">
+                  <div class="milestone-front">
+                    <h4>Aspire Leaders Program</h4>
+                    <span class="flip-hint">Hover to inspect &darr;</span>
+                  </div>
+                  <div class="milestone-back">
+                    <p>2026 Aspire Leaders Program | Harvard-founded global leadership program | Jul 2026</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Mindset (Span 4) -->
+          <article class="bento-card bento-card-mindset reveal-init">
+            <div class="bento-spotlight"></div>
+            <h3 class="cyan-text">Mindset</h3>
+            <p class="mindset-quote">
+              <strong>Build. Break. Understand. Improve.</strong> I learn by building real systems, breaking them apart, understanding how they work, and continuously improving them. My goal is not simply to use AI tools, but to understand the engineering behind intelligent software.
+            </p>
+            <div class="mindset-pillar">&bull; Continuous Learning &bull; Engineering Discipline &bull; Problem Solving</div>
+          </article>
+
+          <!-- Card 4: Mid-Size Studio Portrait (Span 4) -->
+          <article class="bento-card bento-card-portrait reveal-init delay-1">
+            <img src="assets/portrait_bento.jpg" alt="Akshat Gupta Studio Portrait" class="bento-portrait-img" />
+          </article>
+
+          <!-- Card 5: Craft Card (Span 4) -->
+          <article class="bento-card bento-card-craft reveal-init delay-2">
+            <div class="bento-spotlight"></div>
+            <div>
+              <h3 class="cyan-text">Craft</h3>
+              <p style="font-size: 0.825rem; line-height: 1.5; color: var(--text-secondary);">
+                Building <strong>AI-powered applications and full-stack systems</strong> — combining backend engineering with generative AI and agentic workflows.
+              </p>
+            </div>
+            <div class="craft-tech-icons">
+              <span class="craft-tag">LANGGRAPH</span>
+              <span class="craft-tag">FASTAPI</span>
+              <span class="craft-tag">SPRING BOOT</span>
+              <span class="craft-tag">REACT</span>
+              <span class="craft-tag">FAISS</span>
+              <span class="craft-tag">MONGODB</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.5rem; font-family:var(--font-mono); font-size:0.75rem; color:var(--cyan-signature); font-weight:600;">
+              <span class="status-dot"></span>
+              <span>Open to Software &amp; AI Opportunities</span>
+            </div>
+          </article>
+
+          <!-- Card 6: Location Radar Card with Scanning Laser (Span 12) -->
+          <article class="bento-card bento-card-location reveal-init">
+            <div class="laser-scan-line"></div>
+            <div class="location-meta">
+              <h3>MUMBAI, INDIA</h3>
+              <div class="location-coords">19.0760&deg; N, 72.8777&deg; E &bull; GMT+5:30 (IST)</div>
+            </div>
+            <div class="location-status-badge">
+              <span class="status-dot"></span>
+              <span id="status-clock">--:--:-- IST</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 3: Skills (Solar System Model + 5 Single-Plane Depth Cards)
+         ======================================================================== -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <div class="section-header reveal-init">
+          <span class="section-badge">Tech Stack</span>
+          <h2 class="section-title">Celestial <span class="cyan-text">Solar Skills</span></h2>
+          <p class="section-subtitle">Solar system orbit model with planetary axes and categorized domain depth cards.</p>
+        </div>
+
+        <!-- Part A: Solar System Celestial Model Canvas -->
+        <div class="tech-sphere-wrapper reveal-init">
+          <div id="tech-sphere-container">
+            <canvas id="tech-sphere-canvas"></canvas>
+            <div class="sphere-zoom-controls">
+              <button id="sphere-zoom-in" class="sphere-zoom-btn" title="Zoom In" aria-label="Zoom In">+</button>
+              <button id="sphere-zoom-out" class="sphere-zoom-btn" title="Zoom Out" aria-label="Zoom Out">&minus;</button>
+              <button id="sphere-zoom-reset" class="sphere-zoom-btn" title="Reset View" aria-label="Reset View" style="font-size: 0.95rem;">&#x21bb;</button>
+            </div>
+          </div>
+        </div>
+        <div class="sphere-hint">&larr; Drag to rotate 3D celestial system &bull; Use &plus; / &minus; buttons to zoom &rarr;</div>
+
+        <!-- Part B: 5 Tech Capability 3D Flip Cards in ONE Horizontal Line -->
+        <div class="skills-grid-5 reveal-init">
+          <!-- Skill Card 1: Frontend & Interactive UI -->
+          <div class="skill-flip-card">
+            <div class="skill-flip-inner">
+              <div class="skill-flip-front">
+                <div class="skill-front-top">
+                  <span class="skill-domain-icon">⚛</span>
+                  <span class="skill-flip-category">CLIENT &amp; GRAPHICS</span>
+                  <h3 class="skill-flip-title">Frontend &amp; UI Systems</h3>
+                </div>
+                <div>
+                  <span class="skill-front-hint">Hover to flip details &rarr;</span>
+                  <a href="https://github.com/Akshat25-code/ai-code-optimizer" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore" style="margin-top:0.75rem;">
+                    <span>View Project &rarr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="skill-flip-back">
+                <div class="skill-back-top">
+                  <div class="skill-back-heading">Core Technologies</div>
+                  <div class="tech-skill-pills">
+                    <span class="tech-skill-mini">React</span>
+                    <span class="tech-skill-mini">HTML5</span>
+                    <span class="tech-skill-mini">CSS3</span>
+                    <span class="tech-skill-mini">Bootstrap</span>
+                    <span class="tech-skill-mini">JavaScript</span>
+                  </div>
+                </div>
+                <div class="skill-back-bottom">
+                  <span class="tech-project-built">Built: AI Code Optimizer</span>
+                  <a href="https://github.com/Akshat25-code/ai-code-optimizer" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore">
+                    <span>Explore on GitHub &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 2: Backend & Systems -->
+          <div class="skill-flip-card">
+            <div class="skill-flip-inner">
+              <div class="skill-flip-front">
+                <div class="skill-front-top">
+                  <span class="skill-domain-icon">⚡</span>
+                  <span class="skill-flip-category">BACKEND &amp; DISTRIBUTED</span>
+                  <h3 class="skill-flip-title">Backend &amp; Systems</h3>
+                </div>
+                <div>
+                  <span class="skill-front-hint">Hover to flip details &rarr;</span>
+                  <a href="https://github.com/Akshat25-code/AirBnb" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore" style="margin-top:0.75rem;">
+                    <span>View Project &rarr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="skill-flip-back">
+                <div class="skill-back-top">
+                  <div class="skill-back-heading">Core Technologies</div>
+                  <div class="tech-skill-pills">
+                    <span class="tech-skill-mini">Java EE</span>
+                    <span class="tech-skill-mini">Spring Boot</span>
+                    <span class="tech-skill-mini">FastAPI</span>
+                    <span class="tech-skill-mini">REST APIs</span>
+                    <span class="tech-skill-mini">JDBC</span>
+                  </div>
+                </div>
+                <div class="skill-back-bottom">
+                  <span class="tech-project-built">Built: AirBnb Backend System</span>
+                  <a href="https://github.com/Akshat25-code/AirBnb" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore">
+                    <span>Explore on GitHub &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 3: AI & Machine Learning -->
+          <div class="skill-flip-card">
+            <div class="skill-flip-inner">
+              <div class="skill-flip-front">
+                <div class="skill-front-top">
+                  <span class="skill-domain-icon">🧠</span>
+                  <span class="skill-flip-category">INTELLIGENCE &amp; AGENTS</span>
+                  <h3 class="skill-flip-title">AI &amp; Machine Learning</h3>
+                </div>
+                <div>
+                  <span class="skill-front-hint">Hover to flip details &rarr;</span>
+                  <a href="https://github.com/Akshat25-code/Adaptive-Rag" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore" style="margin-top:0.75rem;">
+                    <span>View Project &rarr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="skill-flip-back">
+                <div class="skill-back-top">
+                  <div class="skill-back-heading">Core Technologies</div>
+                  <div class="tech-skill-pills">
+                    <span class="tech-skill-mini">RAG Pipelines</span>
+                    <span class="tech-skill-mini">LangGraph</span>
+                    <span class="tech-skill-mini">FAISS</span>
+                    <span class="tech-skill-mini">LLM APIs</span>
+                    <span class="tech-skill-mini">Prompt Eng</span>
+                  </div>
+                </div>
+                <div class="skill-back-bottom">
+                  <span class="tech-project-built">Built: Adaptive RAG System</span>
+                  <a href="https://github.com/Akshat25-code/Adaptive-Rag" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore">
+                    <span>Explore on GitHub &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 4: Database & Cloud -->
+          <div class="skill-flip-card">
+            <div class="skill-flip-inner">
+              <div class="skill-flip-front">
+                <div class="skill-front-top">
+                  <span class="skill-domain-icon">☁</span>
+                  <span class="skill-flip-category">DATA &amp; INFRASTRUCTURE</span>
+                  <h3 class="skill-flip-title">Database &amp; Cloud</h3>
+                </div>
+                <div>
+                  <span class="skill-front-hint">Hover to flip details &rarr;</span>
+                  <a href="https://github.com/Akshat25-code/ai-code-optimizer" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore" style="margin-top:0.75rem;">
+                    <span>View Project &rarr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="skill-flip-back">
+                <div class="skill-back-top">
+                  <div class="skill-back-heading">Core Technologies</div>
+                  <div class="tech-skill-pills">
+                    <span class="tech-skill-mini">MongoDB</span>
+                    <span class="tech-skill-mini">MySQL</span>
+                    <span class="tech-skill-mini">AWS</span>
+                    <span class="tech-skill-mini">JWT / OAuth</span>
+                    <span class="tech-skill-mini">SQL</span>
+                  </div>
+                </div>
+                <div class="skill-back-bottom">
+                  <span class="tech-project-built">Built: AI Code Optimizer</span>
+                  <a href="https://github.com/Akshat25-code/ai-code-optimizer" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore">
+                    <span>Explore on GitHub &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 5: DevOps & Architecture -->
+          <div class="skill-flip-card">
+            <div class="skill-flip-inner">
+              <div class="skill-flip-front">
+                <div class="skill-front-top">
+                  <span class="skill-domain-icon">🛠</span>
+                  <span class="skill-flip-category">DEVOPS &amp; RELIABILITY</span>
+                  <h3 class="skill-flip-title">DevOps &amp; Architecture</h3>
+                </div>
+                <div>
+                  <span class="skill-front-hint">Hover to flip details &rarr;</span>
+                  <a href="https://github.com/Akshat25-code/Adaptive-Rag" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore" style="margin-top:0.75rem;">
+                    <span>View Project &rarr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="skill-flip-back">
+                <div class="skill-back-top">
+                  <div class="skill-back-heading">Core Technologies</div>
+                  <div class="tech-skill-pills">
+                    <span class="tech-skill-mini">Git</span>
+                    <span class="tech-skill-mini">GitHub</span>
+                    <span class="tech-skill-mini">GitHub Actions</span>
+                    <span class="tech-skill-mini">Apache Server</span>
+                    <span class="tech-skill-mini">CI/CD Suites</span>
+                  </div>
+                </div>
+                <div class="skill-back-bottom">
+                  <span class="tech-project-built">Built: Adaptive RAG CI Pipeline</span>
+                  <a href="https://github.com/Akshat25-code/Adaptive-Rag" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore">
+                    <span>Explore on GitHub &rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 4: Projects (3 BIG 3D Flip Cards in ONE Line)
+         ======================================================================== -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <div class="section-header reveal-init">
+          <span class="section-badge">Selected Work</span>
+          <h2 class="section-title">Engineered to <span class="cyan-text">Scale</span></h2>
+          <p class="section-subtitle">Hover to flip cards and inspect architectural implementations.</p>
+        </div>
+
+        <div class="projects-grid-3 reveal-init">
+          <!-- Project 1: Adaptive RAG -->
+          <div class="project-flip-card">
+            <div class="project-flip-inner">
+              <div class="project-flip-front">
+                <div class="project-front-top">
+                  <span class="project-flip-category">AI / RAG SYSTEMS</span>
+                  <h3 class="project-flip-title">Adaptive RAG</h3>
+                  <p class="project-front-desc">Dynamic query routing across vector search, live web search, and verified LLM answer regeneration.</p>
+                  <div class="project-front-tags">
+                    <span class="project-front-tag">LangGraph</span>
+                    <span class="project-front-tag">FastAPI</span>
+                    <span class="project-front-tag">FAISS</span>
+                    <span class="project-front-tag">MongoDB</span>
+                  </div>
+                </div>
+                <div class="project-front-bottom">
+                  <span class="project-front-hint">Hover to flip details &rarr;</span>
+                  <a href="https://github.com/Akshat25-code/Adaptive-Rag" target="_blank" rel="noopener noreferrer" class="btn-project-github">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    <span>View on GitHub &rarr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-flip-back">
+                <p class="project-back-narrative">
+                  Agentic Retrieval-Augmented Generation system that dynamically routes queries across vector search, live web search, and direct LLM response paths. Includes a relevance-grading and answer-verification pipeline that detects and regenerates ungrounded responses, backed by a 29-test CI suite via GitHub Actions.
+                </p>
+                <div class="project-back-tags">
+                  <span class="project-back-tag">LangGraph</span>
+                  <span class="project-back-tag">FastAPI</span>
+                  <span class="project-back-tag">FAISS</span>
+                  <span class="project-back-tag">MongoDB</span>
+                </div>
+                <a href="https://github.com/Akshat25-code/Adaptive-Rag" target="_blank" rel="noopener noreferrer" class="btn-project-github">
+                  <span>View on GitHub &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: AI Code Optimizer -->
+          <div class="project-flip-card delay-1">
+            <div class="project-flip-inner">
+              <div class="project-flip-front">
+                <div class="project-front-top">
+                  <span class="project-flip-category">AI / DEVELOPER TOOLS</span>
+                  <h3 class="project-flip-title">AI Code Optimizer</h3>
+                  <p class="project-front-desc">Multi-LLM code optimization platform with sandboxed execution, memory profiling, and SARIF secret scanning.</p>
+                  <div class="project-front-tags">
+                    <span class="project-front-tag">React</span>
+                    <span class="project-front-tag">FastAPI</span>
+                    <span class="project-front-tag">MongoDB</span>
+                    <span class="project-front-tag">WebSockets</span>
+                  </div>
+                </div>
+                <div class="project-front-bottom">
+                  <span class="project-front-hint">Hover to flip details &rarr;</span>
+                  <a href="https://github.com/Akshat25-code/ai-code-optimizer" target="_blank" rel="noopener noreferrer" class="btn-project-github">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    <span>View on GitHub &rarr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-flip-back">
+                <p class="project-back-narrative">
+                  Full-stack platform that sends code to multiple AI providers (OpenAI, Claude, Gemini) for optimization and independently verifies results by executing original vs. optimized code in an isolated sandbox to confirm correctness and measure real speed/memory improvements. Includes a custom secret scanner with SARIF export.
+                </p>
+                <div class="project-back-tags">
+                  <span class="project-back-tag">React</span>
+                  <span class="project-back-tag">FastAPI</span>
+                  <span class="project-back-tag">MongoDB</span>
+                  <span class="project-back-tag">WebSockets</span>
+                </div>
+                <a href="https://github.com/Akshat25-code/ai-code-optimizer" target="_blank" rel="noopener noreferrer" class="btn-project-github">
+                  <span>View on GitHub &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: AirBnb Backend System -->
+          <div class="project-flip-card delay-2">
+            <div class="project-flip-inner">
+              <div class="project-flip-front">
+                <div class="project-front-top">
+                  <span class="project-flip-category">BACKEND SYSTEMS</span>
+                  <h3 class="project-flip-title">AirBnb Backend</h3>
+                  <p class="project-front-desc">Layered Spring Boot backend with pessimistic locking to prevent overbooking, dynamic pricing, and Stripe webhooks.</p>
+                  <div class="project-front-tags">
+                    <span class="project-front-tag">Java</span>
+                    <span class="project-front-tag">Spring Boot</span>
+                    <span class="project-front-tag">MySQL</span>
+                    <span class="project-front-tag">Stripe API</span>
+                  </div>
+                </div>
+                <div class="project-front-bottom">
+                  <span class="project-front-hint">Hover to flip details &rarr;</span>
+                  <a href="https://github.com/Akshat25-code/AirBnb" target="_blank" rel="noopener noreferrer" class="btn-project-github">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    <span>View on GitHub &rarr;</span>
+                  </a>
+                </div>
+              </div>
+              <div class="project-flip-back">
+                <p class="project-back-narrative">
+                  Layered Spring Boot backend for a hotel booking platform, with pessimistic database locking to prevent concurrent room overbooking, a Strategy-pattern pricing engine, and Stripe payment integration with robust webhook and automated refund handling.
+                </p>
+                <div class="project-back-tags">
+                  <span class="project-back-tag">Java</span>
+                  <span class="project-back-tag">Spring Boot</span>
+                  <span class="project-back-tag">MySQL</span>
+                  <span class="project-back-tag">Stripe API</span>
+                </div>
+                <a href="https://github.com/Akshat25-code/AirBnb" target="_blank" rel="noopener noreferrer" class="btn-project-github">
+                  <span>View on GitHub &rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 5: Gratitude Contact Section & Animated Thank You Video
+         ======================================================================== -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="gratitude-card reveal-init">
+          <div class="gratitude-left">
+            <h2>Thank You for Stopping By!</h2>
+            <p>
+              I truly appreciate you taking the time to explore my digital space. Whether you'd like to collaborate on an ambitious project, discuss software architecture, or simply connect with a fellow developer, feel free to reach out.
+            </p>
+
+            <div class="gratitude-actions">
+              <button id="copy-email-btn" class="btn-copy-email" data-email="akshatgupta1306@gmail.com">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                </svg>
+                <span>Copy Email</span>
+              </button>
+
+              <div class="social-links">
+                <a href="https://github.com/Akshat25-code" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub Profile">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                  </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/akshat-gupta-it/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn Profile">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect width="4" height="12" x="2" y="9"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Animated Thank You MP4 Video Card -->
+          <div class="gratitude-right">
+            <div class="gratitude-video-frame">
+              <video id="thankyou-video" autoplay muted loop playsinline poster="assets/thankyou_poster.jpg" class="gratitude-video">
+                <source src="assets/thankyou.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+          <div class="footer-content">
+            <div>&copy; 2026 Akshat Gupta. Built with Vanilla Web Standards &bull; Obsidian &times; Electric Cyan</div>
+            <a href="#home" class="back-to-top-btn">
+              <span>Back to Top</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m18 15-6-6-6 6"></path>
+              </svg>
+            </a>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FLOATING & DRAGGABLE AI CHATBOT TERMINAL
+       ======================================================================== -->
+  <!-- Launcher Button -->
+  <button id="ai-chat-launcher" class="ai-chat-launcher" aria-label="Open AI Assistant Chat Window">
+    <span class="status-dot"></span>
+    <span>Ask Akshat's AI</span>
+  </button>
+
+  <!-- Draggable Chat Modal Window -->
+  <div id="draggable-chat-modal" class="draggable-chat-modal" role="dialog" aria-label="Interactive AI Assistant">
+    <div id="chat-drag-handle" class="chat-drag-handle">
+      <div class="chat-header-left">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" x2="20" y1="19" y2="19"></line>
+        </svg>
+        <span>akshat-assistant --interactive</span>
+      </div>
+      <div class="chat-controls">
+        <button id="chat-min-btn" class="chat-ctrl-btn" aria-label="Minimize chat window">&minus;</button>
+        <button id="chat-close-btn" class="chat-ctrl-btn" aria-label="Close chat window">&times;</button>
+      </div>
+    </div>
+
+    <div class="chat-modal-content">
+      <!-- Chat History Log -->
+      <div id="chat-body" class="terminal-chat-body" role="log" aria-live="polite">
+        <div class="chat-message bot">
+          <div class="chat-avatar bot-avatar">AI</div>
+          <div class="chat-bubble">
+            Hi! I'm Akshat's interactive assistant. Ask me anything about his AI engineering work, featured projects (Adaptive RAG, AI Code Optimizer, AirBnb), or his tech stack!
+          </div>
+        </div>
+      </div>
+
+      <!-- Suggestion Chips -->
+      <div class="terminal-chips">
+        <button class="chip-btn" data-query="Tell me about your background">Who are you?</button>
+        <button class="chip-btn" data-query="What is your tech stack and skills?">Skills?</button>
+        <button class="chip-btn" data-query="Show me your best projects">Projects</button>
+        <button class="chip-btn" data-query="How can I contact you?">Contact</button>
+      </div>
+
+      <!-- Chat Input Form -->
+      <form id="chat-form" class="terminal-input-bar">
+        <input
+          type="text"
+          id="chat-input"
+          class="terminal-input-field"
+          placeholder="Ask anything (or type 'matrix')..."
+          autocomplete="off"
+          aria-label="Type your message"
+        />
+        <button type="submit" class="terminal-send-btn" aria-label="Send message">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" x2="11" y1="2" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/canvas.js"></script>
+  <script src="js/preloader.js"></script>
+  <script src="js/typewriter.js"></script>
+  <script src="js/sphere.js"></script>
+  <script src="js/draggable-chat.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

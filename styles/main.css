@@ -1,0 +1,282 @@
+/* ==========================================================================
+   MAIN.CSS - Design Tokens, Reset, Typography, and Base Layout
+   Obsidian x Silver x Electric Cyan Design System (Dark Default + Cool Light)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* 🌑 Dark Mode (Default) — Futuristic / Obsidian / AI */
+  --bg-base: #05080A;
+  --bg-alt: #080D10;
+  --surface: #0D1316;
+  --surface-elevated: #121B1F;
+  --surface-hover: #172328;
+
+  --text-primary: #F1F5F4;
+  --text-secondary: #A8B5B9;
+  --text-muted: #718187;
+  --text-inverse: #05080A;
+
+  --border-normal: #253136;
+  --border-hover: #35464D;
+
+  --cyan-signature: #00E5FF;
+  --cyan-bright: #67F3FF;
+  --cyan-deep: #00AFC4;
+  --cyan-soft: rgba(0, 229, 255, 0.08);
+  --cyan-glow: rgba(0, 229, 255, 0.18);
+  --white: #FFFFFF;
+
+  /* Legacy aliases mapped to Obsidian system */
+  --bg-deep: var(--bg-base);
+  --bg-card: var(--surface);
+  --bg-card-hover: var(--surface-hover);
+  --bg-card-solid: var(--surface-elevated);
+  --border-color: var(--border-normal);
+  --border-color-hover: var(--border-hover);
+  --accent-primary: var(--cyan-signature);
+  --accent-secondary: var(--cyan-bright);
+  --accent-tertiary: var(--cyan-deep);
+  --accent-gradient: linear-gradient(135deg, #FFFFFF 0%, #A8B5B9 45%, #00E5FF 100%);
+  --accent-glow: 0 0 20px rgba(0, 229, 255, 0.25);
+
+  --shadow-ambient: rgba(0, 0, 0, 0.6);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 0 1px var(--border-normal);
+
+  /* Status */
+  --status-online: #00E5FF;
+  --status-busy: #F59E0B;
+
+  /* Fonts */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-script: 'Caveat', cursive;
+
+  /* Layout */
+  --container-max: 1200px;
+  --nav-height: 72px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+  --transition-fast: 0.2s var(--ease-snappy);
+  --transition-normal: 0.35s var(--ease-snappy);
+}
+
+/* ☀️ Light Mode — Clean / High-End / Cool Silver */
+[data-theme="light"] {
+  --bg-base: #F4F8F9;
+  --bg-alt: #EDF3F5;
+  --surface: #FFFFFF;
+  --surface-elevated: #FDFEFE;
+  --surface-hover: #F0F7F8;
+
+  --text-primary: #081014;
+  --text-secondary: #45565D;
+  --text-muted: #718188;
+  --text-inverse: #F1F5F4;
+
+  --border-normal: #D8E3E6;
+  --border-hover: #C3D4D9;
+
+  --cyan-signature: #009FB3;
+  --cyan-bright: #00C6D9;
+  --cyan-deep: #007A89;
+  --cyan-soft: rgba(0, 159, 179, 0.08);
+  --cyan-glow: rgba(0, 159, 179, 0.16);
+  --black: #05080A;
+
+  /* Legacy aliases */
+  --bg-deep: var(--bg-base);
+  --bg-card: var(--surface);
+  --bg-card-hover: var(--surface-hover);
+  --bg-card-solid: var(--surface-elevated);
+  --border-color: var(--border-normal);
+  --border-color-hover: var(--border-hover);
+  --accent-primary: var(--cyan-signature);
+  --accent-secondary: var(--cyan-bright);
+  --accent-tertiary: var(--cyan-deep);
+  --accent-gradient: linear-gradient(135deg, #081014 0%, #45565D 50%, #009FB3 100%);
+  --accent-glow: 0 0 20px rgba(0, 159, 179, 0.2);
+
+  --shadow-ambient: rgba(8, 16, 20, 0.05);
+  --shadow-card: 0 12px 32px -10px rgba(8, 16, 20, 0.08), 0 0 0 1px var(--border-normal);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Styles
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  transition: background-color 0.4s var(--ease-smooth), color 0.4s var(--ease-smooth);
+}
+
+/* Selection */
+::selection {
+  background: var(--cyan-signature);
+  color: #05080A;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-normal);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan-signature);
+}
+
+/* --------------------------------------------------------------------------
+   3. Typography & Utility Classes
+   -------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cyan-signature);
+  background: var(--cyan-soft);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  border-radius: var(--radius-full);
+  margin-bottom: 1rem;
+}
+[data-theme="light"] .section-badge {
+  border-color: rgba(0, 159, 179, 0.25);
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Signature Cyan Highlight Class */
+.cyan-text {
+  color: var(--cyan-signature);
+}
+
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Background Atmosphere - Unified Seamless Layer */
+.bg-ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-color: var(--bg-base);
+  background-image: radial-gradient(650px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(0, 229, 255, 0.04), transparent 75%);
+  transition: background-color 0.4s var(--ease-smooth);
+}
+
+[data-theme="light"] .bg-ambient {
+  background-image: radial-gradient(650px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh), rgba(0, 159, 179, 0.06), transparent 75%);
+}
+
+/* Background Canvas */
+#hero-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Main Content Wrapper */
+.content-wrapper {
+  position: relative;
+  z-index: 10;
+}

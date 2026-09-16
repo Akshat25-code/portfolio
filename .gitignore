@@ -1,0 +1,8 @@
+# Temporary & Build Directories
+.playwright-mcp/
+agency-agents/
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+Thumbs.db
