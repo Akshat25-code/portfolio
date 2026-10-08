@@ -178,26 +178,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const contactForm = document.getElementById('contact-form-internal');
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzP9YlvSPL9O0BYKT31qMUUB2TtcwdLuIxCzIBilC8J9E7Hl5D-UqyA3G8RmkYOqEh3iQ/exec';
+    
     if (contactForm) {
       contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Trigger Confetti Burst (The "Party Balloons" effect)
-        if (typeof confetti === 'function') {
-          confetti({
-            particleCount: 150,
-            spread: 80,
-            origin: { y: 0.6 },
-            zIndex: 10001,
-            colors: ['#00E5FF', '#ffffff', '#A8B5B9']
-          });
-        }
+        // Show loading state
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Sending...</span>';
+        submitBtn.disabled = true;
 
-        setTimeout(() => {
-          alert('Thank you! Your message has been sent successfully.');
-          contactForm.reset();
-          contactModal.classList.remove('show');
-        }, 400);
+        fetch(scriptURL, { method: 'POST', body: new FormData(contactForm)})
+          .then(response => {
+            // Restore button
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+
+            // Trigger Confetti Burst (The "Party Balloons" effect)
+            if (typeof confetti === 'function') {
+              confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 },
+                zIndex: 10001,
+                colors: ['#00E5FF', '#ffffff', '#A8B5B9']
+              });
+            }
+
+            setTimeout(() => {
+              alert('Thank you! Your message has been sent successfully.');
+              contactForm.reset();
+              contactModal.classList.remove('show');
+            }, 400);
+          })
+          .catch(error => {
+            console.error('Error!', error.message);
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+            alert('Oops! Something went wrong. Please try again.');
+          });
       });
     }
   }
