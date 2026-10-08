@@ -181,9 +181,23 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
       contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Thank you! Your message has been sent successfully.');
-        contactForm.reset();
-        contactModal.classList.remove('show');
+        
+        // Trigger Confetti Burst (The "Party Balloons" effect)
+        if (typeof confetti === 'function') {
+          confetti({
+            particleCount: 150,
+            spread: 80,
+            origin: { y: 0.6 },
+            zIndex: 10001,
+            colors: ['#00E5FF', '#ffffff', '#A8B5B9']
+          });
+        }
+
+        setTimeout(() => {
+          alert('Thank you! Your message has been sent successfully.');
+          contactForm.reset();
+          contactModal.classList.remove('show');
+        }, 400);
       });
     }
   }
