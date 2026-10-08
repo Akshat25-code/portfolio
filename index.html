@@ -775,6 +775,21 @@
     </div>
   </div>
 
+  <!-- Firebase Initialization -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    const firebaseConfig = {
+      projectId: "akshatgupta-portfolio",
+      appId: "1:45002291220:web:f4a36a3d1dc51d587d0f01",
+      storageBucket: "akshatgupta-portfolio.firebasestorage.app",
+      apiKey: "AIzaSyCOkdVypgr6ryYSnvhhmLl9XdUMqngpcWo",
+      authDomain: "akshatgupta-portfolio.firebaseapp.com",
+      messagingSenderId: "45002291220",
+      measurementId: "G-6Z0M60SRWF"
+    };
+    const app = initializeApp(firebaseConfig);
+  </script>
+
   <!-- JavaScript Modules -->
   <script src="js/canvas.js"></script>
   <script src="js/preloader.js"></script>
