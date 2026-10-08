@@ -138,4 +138,53 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // --------------------------------------------------------------------------
+  // 8. Portrait Slider
+  // --------------------------------------------------------------------------
+  const sliderImages = document.querySelectorAll('.portrait-slider img');
+  if (sliderImages.length > 0) {
+    let currentImg = 0;
+    setInterval(() => {
+      sliderImages[currentImg].classList.remove('active');
+      currentImg = (currentImg + 1) % sliderImages.length;
+      sliderImages[currentImg].classList.add('active');
+    }, 4000);
+  }
+
+  // --------------------------------------------------------------------------
+  // 9. Contact Form Modal
+  // --------------------------------------------------------------------------
+  const contactModal = document.getElementById('contact-modal');
+  const openModalBtns = document.querySelectorAll('.open-contact-modal');
+  const closeModalBtn = document.querySelector('.close-modal-btn');
+
+  if (contactModal) {
+    openModalBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        contactModal.classList.add('show');
+      });
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+      contactModal.classList.remove('show');
+    });
+
+    contactModal.addEventListener('click', (e) => {
+      if (e.target === contactModal) {
+        contactModal.classList.remove('show');
+      }
+    });
+
+    const contactForm = document.getElementById('contact-form-internal');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Thank you! Your message has been sent successfully.');
+        contactForm.reset();
+        contactModal.classList.remove('show');
+      });
+    }
+  }
 });

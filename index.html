@@ -88,7 +88,7 @@
       </ul>
 
       <!-- CTA Button -->
-      <a href="#contact" class="btn-nav-cta">
+      <a href="#" class="btn-nav-cta open-contact-modal">
         <span>Get in Touch</span>
       </a>
 
@@ -112,7 +112,7 @@
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
       <li>
-        <a href="#contact" class="btn-hero-explore" style="width:100%; justify-content:center; margin-top:0.5rem;">
+        <a href="#" class="btn-hero-explore open-contact-modal" style="width:100%; justify-content:center; margin-top:0.5rem;">
           Get in Touch
         </a>
       </li>
@@ -242,7 +242,11 @@
 
           <!-- Card 4: Mid-Size Studio Portrait (Span 4) -->
           <article class="bento-card bento-card-portrait reveal-init delay-1">
-            <img src="assets/portrait_bento.jpg" alt="Akshat Gupta Studio Portrait" class="bento-portrait-img" />
+            <div class="portrait-slider" id="portrait-slider">
+              <img src="assets/portrait_1.jpg" alt="Akshat Gupta Studio Portrait 1" class="bento-portrait-img active" />
+              <img src="assets/portrait_2.jpg" alt="Akshat Gupta Studio Portrait 2" class="bento-portrait-img" />
+              <img src="assets/portrait_3.jpg" alt="Akshat Gupta Studio Portrait 3" class="bento-portrait-img" />
+            </div>
           </article>
 
           <!-- Card 5: Craft Card (Span 4) -->
@@ -789,6 +793,42 @@
     };
     const app = initializeApp(firebaseConfig);
   </script>
+
+  <!-- ========================================================================
+       GET IN TOUCH MODAL
+       ======================================================================== -->
+  <div id="contact-modal" class="glass-modal" role="dialog" aria-hidden="true">
+    <div class="glass-modal-content">
+      <button class="close-modal-btn" aria-label="Close Modal">&times;</button>
+      <h2 class="cyan-text">Get in Touch</h2>
+      <p class="modal-subtitle">Leave feedback, a testimonial, or just say hi!</p>
+      <form id="contact-form-internal" class="contact-form">
+        <div class="form-group">
+          <label for="contact-name">Name</label>
+          <input type="text" id="contact-name" name="name" required placeholder="John Doe" />
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" required placeholder="john@example.com" />
+        </div>
+        <div class="form-group">
+          <label for="contact-type">Subject Type</label>
+          <select id="contact-type" name="type">
+            <option value="feedback">Feedback</option>
+            <option value="testimonial">Testimonial</option>
+            <option value="inquiry">General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="contact-message">Message</label>
+          <textarea id="contact-message" name="message" rows="4" required placeholder="Your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn-hero-explore" style="width:100%; justify-content:center;">
+          <span>Submit</span>
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- JavaScript Modules -->
   <script src="js/canvas.js"></script>
