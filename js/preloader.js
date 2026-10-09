@@ -24,8 +24,8 @@
       }, 850);
     }
 
-    // Exact 5.1-second auto-timer synchronized with preloader.mp4 (5.11s)
-    const autoTimer = setTimeout(dismissSplash, 5100);
+    // Shortened to 2 seconds for better UX (was 5.1s)
+    const autoTimer = setTimeout(dismissSplash, 2000);
 
     // If video ends earlier, dismiss immediately
     if (splashVideo) {

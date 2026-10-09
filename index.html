@@ -9,6 +9,7 @@
   <meta name="author" content="Akshat Gupta" />
 
   <!-- Open Graph / Social Meta -->
+  <meta property="og:image" content="https://akshatgupta-portfolio.web.app/assets/portrait_1.jpg" />
   <meta property="og:title" content="Akshat Gupta | AI Engineer &amp; Full-Stack Developer" />
   <meta property="og:description" content="Building intelligent software at the intersection of AI, software engineering, and full-stack systems." />
   <meta property="og:type" content="website" />
@@ -87,10 +88,16 @@
         <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
 
-      <!-- CTA Button -->
-      <a href="#" class="btn-nav-cta open-contact-modal">
-        <span>Get in Touch</span>
-      </a>
+      <div style="display:flex; gap:1.5rem; align-items:center;">
+        <!-- Resume Button -->
+        <a href="assets/Akshat_Gupta_Resume.pdf" target="_blank" class="btn-nav-resume" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease;" onmouseover="this.style.color='var(--cyan-primary)'" onmouseout="this.style.color='var(--text-secondary)'">
+          Download Resume (PDF)
+        </a>
+        <!-- CTA Button -->
+        <a href="#" class="btn-nav-cta open-contact-modal">
+          <span>Get in Touch</span>
+        </a>
+      </div>
 
       <!-- Mobile Hamburger Button -->
       <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Open Mobile Navigation Menu">
@@ -111,6 +118,11 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li>
+        <a href="assets/Akshat_Gupta_Resume.pdf" target="_blank" style="color: var(--cyan-primary); padding: 0.5rem 0; font-family: var(--font-mono); font-size: 0.95rem;">
+          Download Resume (PDF)
+        </a>
+      </li>
       <li>
         <a href="#" class="btn-hero-explore open-contact-modal" style="width:100%; justify-content:center; margin-top:0.5rem;">
           Get in Touch
@@ -215,15 +227,15 @@
                 </div>
               </div>
 
-              <!-- Flip Card 3: Aspire Leaders Program -->
+              <!-- Flip Card 3: SDAC Infotech -->
               <div class="milestone-flip-card">
                 <div class="milestone-flip-inner">
                   <div class="milestone-front">
-                    <h4>Aspire Leaders Program</h4>
+                    <h4>SDAC Infotech Intern</h4>
                     <span class="flip-hint">Hover to inspect &darr;</span>
                   </div>
                   <div class="milestone-back">
-                    <p>2026 Aspire Leaders Program | Harvard-founded global leadership program | Jul 2026</p>
+                    <p>Web Developer Intern | SDAC Infotech | Hands-on experience with Apache Server, PHP, and Web Architecture.</p>
                   </div>
                 </div>
               </div>
@@ -357,7 +369,7 @@
               <div class="skill-flip-front">
                 <div class="skill-front-top">
                   <span class="skill-domain-icon">⚡</span>
-                  <span class="skill-flip-category">BACKEND &amp; DISTRIBUTED</span>
+                  <span class="skill-flip-category">BACKEND SYSTEMS</span>
                   <h3 class="skill-flip-title">Backend &amp; Systems</h3>
                 </div>
                 <div>
@@ -373,7 +385,7 @@
                   <div class="tech-skill-pills">
                     <span class="tech-skill-mini">Java EE</span>
                     <span class="tech-skill-mini">Spring Boot</span>
-                    <span class="tech-skill-mini">FastAPI</span>
+                    <span class="tech-skill-mini">Microservices</span>
                     <span class="tech-skill-mini">REST APIs</span>
                     <span class="tech-skill-mini">JDBC</span>
                   </div>
@@ -436,7 +448,7 @@
                 </div>
                 <div>
                   <span class="skill-front-hint">Hover to flip details &rarr;</span>
-                  <a href="https://github.com/Akshat25-code/ai-code-optimizer" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore" style="margin-top:0.75rem;">
+                  <a href="https://github.com/Akshat25-code/AirBnb" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore" style="margin-top:0.75rem;">
                     <span>View Project &rarr;</span>
                   </a>
                 </div>
@@ -445,16 +457,16 @@
                 <div class="skill-back-top">
                   <div class="skill-back-heading">Core Technologies</div>
                   <div class="tech-skill-pills">
-                    <span class="tech-skill-mini">MongoDB</span>
                     <span class="tech-skill-mini">MySQL</span>
                     <span class="tech-skill-mini">AWS</span>
+                    <span class="tech-skill-mini">MongoDB</span>
                     <span class="tech-skill-mini">JWT / OAuth</span>
                     <span class="tech-skill-mini">SQL</span>
                   </div>
                 </div>
                 <div class="skill-back-bottom">
-                  <span class="tech-project-built">Built: AI Code Optimizer</span>
-                  <a href="https://github.com/Akshat25-code/ai-code-optimizer" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore">
+                  <span class="tech-project-built">Built: AirBnb System</span>
+                  <a href="https://github.com/Akshat25-code/AirBnb" target="_blank" rel="noopener noreferrer" class="btn-tech-github-explore">
                     <span>Explore on GitHub &rarr;</span>
                   </a>
                 </div>
@@ -485,7 +497,7 @@
                     <span class="tech-skill-mini">Git</span>
                     <span class="tech-skill-mini">GitHub</span>
                     <span class="tech-skill-mini">GitHub Actions</span>
-                    <span class="tech-skill-mini">Apache Server</span>
+                    <span class="tech-skill-mini">Docker</span>
                     <span class="tech-skill-mini">CI/CD Suites</span>
                   </div>
                 </div>
@@ -509,7 +521,7 @@
       <div class="container">
         <div class="section-header reveal-init">
           <span class="section-badge">Selected Work</span>
-          <h2 class="section-title">Engineered to <span class="cyan-text">Scale</span></h2>
+          <h2 class="section-title">Engineered with <span class="cyan-text">Precision</span></h2>
           <p class="section-subtitle">Hover to flip cards and inspect architectural implementations.</p>
         </div>
 

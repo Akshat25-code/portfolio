@@ -19,27 +19,27 @@
       {
         triggers: ['who are you', 'about', 'bio', 'introduce', 'who made this', 'yourself'],
         response:
-          "I'm Abhishek's AI Assistant! Abhishek is a Full-Stack Engineer and 3D Web Specialist focused on high-performance web applications, interactive bento interfaces, and scalable architectures.",
+          "I'm Akshat's AI Assistant! Akshat is an AI Engineer and Full-Stack Developer specializing in agentic RAG pipelines, production backends, and modern software systems.",
       },
       {
         triggers: ['skill', 'stack', 'tech', 'languages', 'framework', 'frontend', 'backend'],
         response:
-          'Abhishek specializes in React, Next.js, TypeScript, Node.js, Python, Three.js / WebGL, Docker, and PostgreSQL. Check out the interactive Skills Grid below for detailed proficiency levels!',
+          'Akshat specializes in LangGraph, FastAPI, Spring Boot, React, MongoDB, and AWS. Check out the interactive Skills Grid below for detailed proficiency levels!',
       },
       {
         triggers: ['project', 'work', 'built', 'portfolio', 'showcase'],
         response:
-          'Featured projects include: 1) Nexus CRM (enterprise real-time dashboard), 2) Spatial 3D Studio (WebGL product visualizer), and 3) OmniPay (cryptographic payment checkout). Scroll down to the Projects section to explore live demos!',
+          'Featured projects include: 1) Adaptive RAG (AI agent routing), 2) AI Code Optimizer (Multi-LLM platform), and 3) AirBnb Backend System (Spring Boot). Scroll down to the Projects section to explore live demos!',
       },
       {
         triggers: ['contact', 'hire', 'email', 'reach', 'call', 'freelance'],
         response:
-          'You can contact Abhishek directly via email at abhishek@example.com or book an introductory discovery call using the "Book a Call" button in the top navigation bar!',
+          'You can contact Akshat directly via email by clicking the "Get in Touch" button in the navigation bar to send a message!',
       },
       {
-        triggers: ['experience', 'education', 'background', 'university', 'hackathon'],
+        triggers: ['experience', 'education', 'background', 'university', 'internship', 'sdac'],
         response:
-          'Computer Science background with multiple hackathon podium finishes (Smart City & Space Tech hackathons). Experienced in shipping production-grade SaaS products and immersive consumer web apps.',
+          'Akshat is currently studying IT at Mumbai University. He has practical experience as a Web Developer Intern at SDAC Infotech (working with Apache and Backend systems) and holds an Oracle Cloud Infrastructure AI Foundations certification.',
       },
       {
         triggers: ['hi', 'hello', 'hey', 'sup', 'greetings'],
@@ -53,9 +53,14 @@
         action: 'matrix',
       },
       {
-        triggers: ['hire me', 'hire'],
+        triggers: ['hire me', 'hire', 'salary', 'pay', 'money'],
         response:
-          '🎉 Outstanding decision! Abhishek is currently available for select full-time roles and high-impact freelance collaborations. Let’s make it happen!',
+          '🎉 Outstanding decision! Akshat is open to Software & AI opportunities. Please use the contact form to discuss specifics and compensation!',
+      },
+      {
+        triggers: ['kubernetes', 'k8s', 'trick', 'docker', 'prompt'],
+        response:
+          "Nice try! While I can't answer every technical question, Akshat's core skills are explicitly listed in the Tech Stack section. For anything else, feel free to reach out to him directly!",
       },
       {
         triggers: ['whoami'],
@@ -66,7 +71,7 @@
 
     // Fallback response
     const defaultResponse =
-      "Great question! Abhishek has deep experience across modern web technologies, performance optimization, and creative UI engineering. You can also ask about his 'skills', 'projects', or click any suggestion chip above!";
+      "Great question! Akshat has deep experience across modern web technologies, AI systems, and backend engineering. You can ask about his 'skills', 'projects', or click any suggestion chip above!";
 
     // Append Message to Chat Log
     function appendMessage(sender, text, isHtml = false) {
